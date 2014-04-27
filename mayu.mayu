@@ -1,0 +1,55 @@
+# include "workaround.mayu"
+
+if ( USE104 )
+  include "104.mayu"
+  if ( USE109on104 )
+    include "109on104.mayu"
+  endif
+else
+  include "109.mayu"
+  if ( USE104on109 )
+    include "104on109.mayu"
+  endif
+endif
+
+if ( USEdefault )
+  include	"default.mayu"
+endif
+
+def subst *E0âpêî = *E0âpêî
+def subst *âpêî = *âpêî
+
+if ( SANDS  )
+  keymap Global 
+  mod shift += !!Space
+endif
+
+# if ( USE104 )
+# key ~IL-C-J = A-GraveAccent
+# else
+# if ( USE109 )
+# key ~IL-C-J = $ToggleIME
+# endif
+# endif
+# key ~IL-C-J = $ToggleIME
+
+# key W-A = C-A
+# key W-Z = C-Z
+# key W-C = C-C
+# key W-X = C-X
+# key W-V = C-V
+
+# mod windows -= RightWindows
+# key RightWindows = $ToggleIME
+
+if ( USE104 )
+    mod control += E0CapsLock
+    key *E0CapsLock = *LControl
+else
+    if ( USE109 )
+        mod control += E0âpêî
+	    mod control += âpêî
+        key *E0âpêî = *LControl
+        key *âpêî = *LControl
+    endif
+endif
