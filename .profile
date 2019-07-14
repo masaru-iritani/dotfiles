@@ -143,6 +143,16 @@ alias jobs='jobs -l'
 alias ls_l='ls -l'
 alias tail='tail -n`resize 2> /dev/null | eval; expr $LINES - 2`'
 
+if exists cmd.exe
+then
+    alias cmd='cmd.exe'
+fi
+
+if exists powershell.exe
+then
+    alias powershell='powershell.exe'
+fi
+
 if vi --version > /dev/null 2>&1
 then
     if exists nvi
