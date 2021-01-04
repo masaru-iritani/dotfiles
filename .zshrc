@@ -154,6 +154,29 @@ function +vi-git-config-user() {
     hook_com[misc]+=`git config user.email`
 }
 
+# Load zsh plugins.
+if [[ -f ~/.zplug/init.zsh ]]
+then
+    source ~/.zplug/init.zsh
+    zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+    # Synchronize the system clipboard with the ZLE buffer.
+    typeset -g ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
+    zplug 'kutsan/zsh-system-clipboard'
+
+    if ! zplug check
+    then
+        zplug install
+    fi
+
+    zplug load
+
+    bindkey '^V' zsh-system-clipboard-vicmd-vi-put-before
+else
+    echo "${fg[yellow]}zplug is unavailable.${reset_color}" 2>&1 1>/dev/null | cat
+fi
+
+# Attach or create a tmux session.
 if exists tmux
 then
     if test -z "$TMUX"
