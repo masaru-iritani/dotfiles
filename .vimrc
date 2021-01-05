@@ -3,6 +3,8 @@
 
 filetype off
 
+packloadall
+
 if has('autocmd')
   autocmd!
 
@@ -19,9 +21,12 @@ if has('autocmd')
 
   augroup NERDTree
     autocmd!
-    autocmd FileType nerdtree nnoremap <buffer> <C-n> <Nop>
-    autocmd FileType nerdtree nnoremap <buffer> <C-p> <Nop>
+    autocmd FileType nerdtree nnoremap <buffer> q <Nop>
     autocmd FileType nerdtree nnoremap <buffer> ; <C-w>w:
+    autocmd FileType nerdtree nnoremap <buffer> <C-n> <Nop>
+    autocmd FileType nerdtree nnoremap <buffer> <C-o> <Nop>
+    autocmd FileType nerdtree nnoremap <buffer> <C-p> <Nop>
+    autocmd FileType nerdtree nnoremap <buffer> <C-w>q <Nop>
   augroup END
 
   augroup Tex
@@ -137,22 +142,9 @@ if has('autocmd')
       autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<CR> "navigate down by method/property/field
     endif
   augroup END
-
-  augroup TweetVim
-    autocmd!
-    autocmd FileType tweetvim setlocal nonumber norelativenumber wrap
-    autocmd FileType tweetvim nnoremap <buffer> n :TweetVimSay<CR>
-    autocmd FileType tweetvim nnoremap <buffer> gh :TweetVimUserStream<CR>
-    autocmd FileType tweetvim nnoremap <buffer> gr :TweetVimMentions<CR>
-    autocmd FileType tweetvim nnoremap <buffer> . \\
-    autocmd FileType tweetvim nnoremap <buffer> <Space> <C-d>
-    autocmd FileType tweetvim_say setlocal nonumber norelativenumber wrap
-  augroup END
 endif
 
 chdir ~
-
-map <Space> <Plug>(easymotion-prefix)
 
 cnoremap <C-a> <C-b>
 cnoremap <C-b> <Left>
@@ -161,14 +153,13 @@ cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-l> <Esc>:nohlsearch<Return>:<BackSpace>
+nnoremap <Space> :Denite buffer<CR>
 nnoremap Y y$
 nnoremap : ;
 nnoremap ; :
 nnoremap <S-Tab> gT
 nnoremap <Tab> gt
-nnoremap <Leader>t :TweetVimUserStream<Return>
 nnoremap <C-n> :bn<Return>
-nnoremap <C-o> :NERDTreeTabsToggle<CR>
 nnoremap <C-p> :bp<Return>
 if exists(':update') == 2
   nnoremap <CR> :update<Return>
@@ -269,8 +260,9 @@ set wildmenu
 set nowritebackup
 
 scriptencoding utf-8
-colorscheme desert
+colorscheme elflord
 syntax enable
+
 highlight ChangedDefaultHl cterm=bold ctermbg=4 ctermfg=white gui=bold guibg=red guifg=white
 highlight DiffAdd cterm=bold ctermbg=4 guibg=DarkBlue
 highlight LineNr ctermfg=2 ctermbg=4
@@ -286,52 +278,28 @@ let g:buftabs_marker_start = '%2* '
 let g:buftabs_marker_end = ' %0*'
 let g:buftabs_separator = ':'
 let g:buftabs_separator_mod = '*'
-let g:ctrlp_map = '<c-o>'
-let g:EasyMotion_do_mapping = 0
+let g:camelcasemotion_key = '<leader>'
 let g:NERDTreeShowHidden = 1
 let g:nerdtree_tabs_autofind = 1
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:omnicomplete_fetch_full_documentation = 1
 let g:skk_auto_save_jisyo = 1
 let g:skk_jisyo = expand('~/SKK-JISYO.L')
-let g:skk_kutouten_jp = '。，'
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:quickrun_config = {'*': {'split': '5'}}
-let g:tweetvim_datetime_format = '%Y-%m-%d %H:%M:%S'
-let g:tweetvim_display_icon = 1
-let g:tweetvim_empty_separator = 1
-let g:tweetvim_expand_t_co = 1
-let g:tweetvim_favorited_sign = '★'
-let g:tweetvim_format_left = '{icon}@{screen_name} ({name}) - {created_at}\n'
-\                          . '{text}\n'
-\                          . '{favorited} {retweet_count}RT from {source}'
-let g:tweetvim_format_right = ''
-let g:tweetvim_padding_left = '| '
-let g:tweetvim_unfavorited_sign = '☆'
-let g:vimproc#download_windows_dll = 1
+let g:unite_enable_start_insert = 1
 
-if exists(':NeoBundle') == 2
-  NeoBundle 'basyura/twibill.vim'
-  NeoBundle 'bkad/CamelCaseMotion'
-  NeoBundle 'easymotion/vim-easymotion'
-  NeoBundle 'kien/ctrlp.vim'
-  if has('python')
-    NeoBundle 'nosami/Omnisharp'
-    NeoBundle 'OmniSharp/omnisharp-vim'
-  endif
-  NeoBundle 'osyo-manga/vim-over'
-  NeoBundle 'Shougo/neosnippet.vim'
-  NeoBundle 'Shougo/neosnippet-snippets'
-  NeoBundle 'sudo.vim'
-  NeoBundle 'thinca/vim-quickrun'
-  NeoBundle 'tpope/vim-dispatch'
-  NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'tyru/open-browser.vim'
-  NeoBundle 'tyru/skk.vim'
-  call neobundle#end()
-endif
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> q denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
+endfunction
 
 filetype plugin indent on
 

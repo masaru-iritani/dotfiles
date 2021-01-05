@@ -1,45 +1,36 @@
-[submodule ".vim/pack/plugins/start/vim-trailing-whitespace"]
-	path = .vim/pack/plugins/start/vim-trailing-whitespace
-	url = https://github.com/bronson/vim-trailing-whitespace.git
-[submodule ".vim/pack/plugins/start/vimperator.vim"]
-	path = .vim/pack/plugins/start/vimperator.vim
-	url = https://github.com/vimperator/vimperator.vim.git
 [submodule ".vim/pack/plugins/start/syntastic"]
 	path = .vim/pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
-[submodule ".vim/pack/plugins/start/tmux.vim"]
-	path = .vim/pack/plugins/start/tmux.vim
-	url = https://github.com/keith/tmux.vim.git
 [submodule ".vim/pack/plugins/start/vim-buftabline"]
 	path = .vim/pack/plugins/start/vim-buftabline
 	url = https://github.com/ap/vim-buftabline.git
-[submodule ".vim/pack/plugins/start/unite.vim"]
-	path = .vim/pack/plugins/start/unite.vim
-	url = https://github.com/Shougo/unite.vim.git
-[submodule ".vim/pack/plugins/start/vim-dirvish"]
-	path = .vim/pack/plugins/start/vim-dirvish
-	url = https://github.com/justinmk/vim-dirvish.git
 [submodule ".vim/pack/plugins/start/nerdtree"]
 	path = .vim/pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/pack/plugins/start/restart.vim"]
-	path = .vim/pack/plugins/start/restart.vim
-	url = https://github.com/tyru/restart.vim.git
 [submodule ".vim/pack/plugins/start/CamelCaseMotion"]
 	path = .vim/pack/plugins/start/CamelCaseMotion
 	url = https://github.com/bkad/CamelCaseMotion.git
 [submodule ".vim/pack/plugins/start/vim-ps1"]
 	path = .vim/pack/plugins/start/vim-ps1
 	url = https://github.com/PProvost/vim-ps1.git
-[submodule ".vim/pack/plugins/start/IndexedSearch"]
-	path = .vim/pack/plugins/start/IndexedSearch
-	url = https://github.com/vim-scripts/IndexedSearch.git
 [submodule ".vim/pack/plugins/start/vim-nerdtree-tabs"]
 	path = .vim/pack/plugins/start/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
 [submodule ".vim/pack/plugins/start/vim-buffergator"]
 	path = .vim/pack/plugins/start/vim-buffergator
 	url = https://github.com/jeetsukumaran/vim-buffergator.git
-[submodule ".vim/pack/plugins/start/vim-code-dark"]
-	path = .vim/pack/plugins/start/vim-code-dark
-	url = https://github.com/tomasiser/vim-code-dark.git
+[submodule ".vim/pack/plugins/start/denite.nvim"]
+	path = .vim/pack/plugins/start/denite.nvim
+	url = https://github.com/Shougo/denite.nvim.git
+[submodule ".vim/pack/plugins/start/nvim-yarp"]
+	path = .vim/pack/plugins/start/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
+[submodule ".vim/pack/plugins/start/vim-hug-neovim-rpc"]
+	path = .vim/pack/plugins/start/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc
+[submodule ".vim/pack/plugins/start/bufexplorer"]
+	path = .vim/pack/plugins/start/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer
+[submodule ".vim/pack/plugins/start/vim-better-whitespace"]
+	path = .vim/pack/plugins/start/vim-better-whitespace
+	url = https://github.com/ntpeters/vim-better-whitespace
