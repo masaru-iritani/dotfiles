@@ -93,6 +93,9 @@ fi
 
 path add {,~}/{,usr/{,local/{,lib/mailman/bin/}}}{{,s}bin,libexec}
 
+# Add pip binaries (e.g. flake8)
+path add ~/.local/bin
+
 if [ "${UID}" = "0" ]
 then
     export LANG=C
@@ -234,20 +237,6 @@ Linux* | CYGWIN*)
     alias ls='ls -Fhp --color=auto'
     ;;
 esac
-
-# GO
-#
-# export GOROOT=~/go
-# case $OSTYPE in
-# linux*)   export GOOS=linux   ;;
-# freebsd*) export GOOS=freebsd ;;
-# darwin*)  export GOOS=darwin  ;;
-# esac
-# 
-# case $MACHTYPE in 
-# i[3456]86) export GOARCH='386'   ;;
-# x86_64)    export GOARCH='amd64' ;;
-# esac
 
 # KEYCHAIN
 if exists keychain
