@@ -19,18 +19,12 @@
 [submodule ".vim/pack/plugins/start/vim-buffergator"]
 	path = .vim/pack/plugins/start/vim-buffergator
 	url = https://github.com/jeetsukumaran/vim-buffergator.git
-[submodule ".vim/pack/plugins/start/denite.nvim"]
-	path = .vim/pack/plugins/start/denite.nvim
-	url = https://github.com/Shougo/denite.nvim.git
-[submodule ".vim/pack/plugins/start/nvim-yarp"]
-	path = .vim/pack/plugins/start/nvim-yarp
-	url = https://github.com/roxma/nvim-yarp
-[submodule ".vim/pack/plugins/start/vim-hug-neovim-rpc"]
-	path = .vim/pack/plugins/start/vim-hug-neovim-rpc
-	url = https://github.com/roxma/vim-hug-neovim-rpc
 [submodule ".vim/pack/plugins/start/bufexplorer"]
 	path = .vim/pack/plugins/start/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer
 [submodule ".vim/pack/plugins/start/vim-better-whitespace"]
 	path = .vim/pack/plugins/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace
+[submodule ".vim/pack/plugins/start/ctrlp.vim"]
+	path = .vim/pack/plugins/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
