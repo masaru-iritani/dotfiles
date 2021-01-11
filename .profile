@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Checks if a command in the first argument exists or not.
 exists() {
     which $1 2> /dev/null > /dev/null
 }
@@ -145,82 +146,6 @@ alias ipconfig='ifconfig'
 alias jobs='jobs -l'
 alias ls_l='ls -l'
 alias tail='tail -n`resize 2> /dev/null | eval; expr $LINES - 2`'
-
-if exists cmd.exe
-then
-    alias cmd='cmd.exe'
-fi
-
-if exists powershell.exe
-then
-    alias powershell='powershell.exe'
-fi
-
-if vi --version > /dev/null 2>&1
-then
-    if exists nvi
-    then
-        if ! exists vi
-        then
-            alias vi=nvi
-        fi
-    else
-        alias vi='vim -u NONE -C "+syntax on"'
-    fi
-fi
-
-if ! exists lv
-then
-    alias lv=less
-fi
-if exists trash
-then
-    if trash > /dev/null 2>&1
-    then
-        alias rm=trash
-    fi
-fi
-
-# SSH SERVER ALIVE INTERVAL
-if exists bc
-then
-    SSH_VERSION=`ssh -V 2>&1|sed 's/OpenSSH[-_]\([0-9.]*\).*/\1/'`
-    IS_SERVERALIVEINTERVAL_SUPPORTED=`echo "$SSH_VERSION >= 3.8" | bc`
-    if [ "$IS_SERVERALIVEINTERVAL_SUPPORTED" = "1" ]
-    then
-        alias ssh='ssh -o ServerAliveInterval=300'
-    fi
-fi
-
-# PYTHON 2
-PYTHON_VERSION=`python -V 2>&1 | awk 'NR==1{print(int($2))}'`
-if [ $PYTHON_VERSION -eq 2 ]
-then
-    alias python2='python'
-elif which seq > /dev/null 2>&1
-then
-    # Windows Git bash may not have seq...
-    for V in `seq 2.9 -0.1 2.0`
-    do
-        if exists python$V
-        then
-            alias python2="python$V"
-            break
-        fi
-    done
-fi
-
-# TRASH-CLI
-if alias python2 > /dev/null 2>&1
-then
-    if exists trash
-    then
-        alias 'trash'="python2 `which trash`"
-        alias 'list-trash'="python2 `which list-trash`"
-        alias 'restore-trash'="python2 `which restore-trash`"
-        alias 'empty-trash'="python2 `which empty-trash`"
-    fi
-fi
 
 # LS OPTS
 case "`uname -s`" in
