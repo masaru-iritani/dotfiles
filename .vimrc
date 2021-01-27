@@ -58,7 +58,6 @@ if has('autocmd')
 
   augroup Java
     autocmd!
-    autocmd FileType java setlocal omnifunc=javacomplete#Complete
     autocmd FileType java setlocal completefunc=javacomplete#CompleteParamsInfo
     autocmd FileType java setlocal makeprg=ant
   augroup END
@@ -130,33 +129,6 @@ if has('autocmd')
     autocmd BufWritePre * endif
     autocmd BufWritePost * if &binary | %!xxd -g1
     autocmd BufWritePost * set nomod | endif
-  augroup END
-
-  augroup omnisharp_commands
-    autocmd!
-    if exists('*OmniSharp#Complete')
-      autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-      autocmd FileType cs nnoremap <F2> :OmniSharpRename<CR>
-      autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuildAsync<CR>
-      autocmd FileType cs nnoremap <C-B> :wa!<cr>:OmniSharpBuildAsync<CR>
-      autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
-      autocmd BufWritePost *.cs call OmniSharp#AddToProject()
-      autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-      "The following commands are contextual, based on the current cursor position.
-      autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<CR>
-      autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<CR>
-      autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<CR>
-      autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<CR>
-      autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<CR>
-      autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<CR> "finds members in the current buffer
-      " cursor can be anywhere on the line containing an issue
-      autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<CR>
-      autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<CR>
-      autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<CR>
-      autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<CR>
-      autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<CR> "navigate up by method/property/field
-      autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<CR> "navigate down by method/property/field
-    endif
   augroup END
 endif
 
@@ -307,7 +279,6 @@ let g:lsp_settings = {
 let g:NERDTreeShowHidden = 1
 let g:nerdtree_tabs_autofind = 1 " Automatically find and select currently opened file in NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 1 " Open NERDTree on console vim startup
-let g:omnicomplete_fetch_full_documentation = 1
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
