@@ -153,12 +153,14 @@ cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-l> <Esc>:nohlsearch<Return>:<BackSpace>
-nnoremap <Space> :Denite buffer<CR>
+nnoremap <Space> :CtrlP<CR>
 nnoremap Y y$
 nnoremap : ;
 nnoremap ; :
 nnoremap <S-Tab> gT
 nnoremap <Tab> gt
+nnoremap <C-b> :CtrlPBuffer<CR>
+nnoremap <C-f> :CtrlPCurWD<CR>
 nnoremap <C-n> :bn<Return>
 nnoremap <C-p> :bp<Return>
 if exists(':update') == 2
