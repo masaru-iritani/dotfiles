@@ -198,11 +198,6 @@ set cpoptions& cpoptions+=$
 if exists('+cursorline')
   set cursorline
 endif
-if isdirectory($TEMP)
-  set directory=$TEMP
-elseif isdirectory('/tmp')
-  set directory=/tmp
-endif
 set expandtab
 set encoding=utf-8
 set formatoptions+=mM
@@ -271,8 +266,6 @@ highlight LineNr ctermfg=2 ctermbg=4
 highlight NonText cterm=NONE ctermfg=darkgray ctermbg=NONE gui=NONE guifg=#666666 guibg=NONE
 highlight Search cterm=reverse
 highlight StatusLine cterm=None ctermbg=2 gui=bold
-
-lang C
 
 let g:buftabs_only_basename = 1
 let g:buftabs_in_statusline = 1
