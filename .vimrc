@@ -69,6 +69,22 @@ if has('autocmd')
     autocmd FileType javascript setlocal tabstop=2
   augroup END
 
+  augroup LanguageServerProtocol
+    autocmd!
+    autocmd User lsp_buffer_enabled setlocal omnifunc=lsp#complete
+    autocmd User lsp_buffer_enabled setlocal completefunc=lsp#complete
+    autocmd User lsp_buffer_enabled setlocal signcolumn=yes
+    autocmd User lsp_buffer_enabled setlocal foldmethod=expr
+    autocmd User lsp_buffer_enabled setlocal foldexpr=lsp#ui#vim#folding#foldexpr()
+    autocmd User lsp_buffer_enabled setlocal foldtext=lsp#ui#vim#folding#foldtext()
+    autocmd User lsp_buffer_enabled nmap <buffer> K <Plug>(lsp-hover)
+    autocmd User lsp_buffer_enabled nmap <buffer> <F2> <Plug>(lsp-rename)
+    autocmd User lsp_buffer_enabled nmap <buffer> <F7> <Plug>(lsp-previous-diagnostic)
+    autocmd User lsp_buffer_enabled nmap <buffer> <F8> <Plug>(lsp-next-diagnostic)
+    autocmd User lsp_buffer_enabled nmap <buffer> <F12> <Plug>(lsp-definition)
+    autocmd User lsp_buffer_enabled nmap <buffer> <S-F12> <Plug>(lsp-references)
+  augroup END
+
   augroup PowerShell
     autocmd!
     autocmd FileType ps1 nnoremap <buffer> <F5> :QuickRun<CR>
@@ -152,7 +168,7 @@ cnoremap <C-f> <Right>
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 inoremap <C-Space> <C-x><C-o>
-inoremap <C-l> <Esc>:nohlsearch<Return>:<BackSpace>
+inoremap <C-l> <Esc>:nohlsearch<CR>:<BackSpace>
 nnoremap <Space> :CtrlP<CR>
 nnoremap Y y$
 nnoremap : ;
@@ -161,17 +177,18 @@ nnoremap <S-Tab> gT
 nnoremap <Tab> gt
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <C-f> :CtrlPCurWD<CR>
+nnoremap <C-o> <Nop>
 nnoremap <C-n> :bn<Return>
 nnoremap <C-p> :bp<Return>
 if exists(':update') == 2
-  nnoremap <CR> :update<Return>
+  nnoremap <CR> :update<CR>
 else
   " Use :w for Vim-like applications without the support of :update
-  nnoremap <CR> :w<Return>
+  nnoremap <CR> :w<CR>
 endif
 if exists(':Changed') == 2 && !has('win32')
   " Automatically :Change on non-Windows computers only because invoking diff is slow and annoying on Windows
-  nnoremap <Esc> :noh<Return>:Changed<Return>
+  nnoremap <Esc> :noh<CR>:Changed<CR>
 endif
 
 if exists('+ambiwidth')
@@ -274,27 +291,27 @@ let g:buftabs_marker_end = ' %0*'
 let g:buftabs_separator = ':'
 let g:buftabs_separator_mod = '*'
 let g:camelcasemotion_key = '<leader>'
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_settings = {
+\   'clangd': {
+\     'cmd': ['clangd', '--std=c++17' ]
+\   },
+\   'pyls-all': {
+\     'workspace_config': {
+\       'pyls': {
+\         'configurationSources': ['flake8']
+\       }
+\     }
+\   },
+\}
 let g:NERDTreeShowHidden = 1
-let g:nerdtree_tabs_autofind = 1
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_autofind = 1 " Automatically find and select currently opened file in NERDTree
+let g:nerdtree_tabs_open_on_console_startup = 1 " Open NERDTree on console vim startup
 let g:omnicomplete_fetch_full_documentation = 1
-let g:skk_auto_save_jisyo = 1
-let g:skk_jisyo = expand('~/SKK-JISYO.L')
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:quickrun_config = {'*': {'split': '5'}}
-let g:unite_enable_start_insert = 1
-
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-    nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
-    nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
-    nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
-    nnoremap <silent><buffer><expr> q denite#do_map('quit')
-    nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
-    nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
-endfunction
 
 filetype plugin indent on
 
