@@ -99,6 +99,7 @@ if has('autocmd')
 
   augroup QuickFix
     autocmd!
+    autocmd FileType qf nunmap <buffer> <CR>
     autocmd FileType qf nnoremap <buffer> q <C-w>q
   augroup END
 
