@@ -107,13 +107,6 @@ if has('autocmd')
     autocmd FileType rst setlocal wrap
   augroup END
 
-  augroup Unite
-    autocmd!
-    autocmd FileType unite nnoremap <buffer> q <C-w>q
-    autocmd FileType unite inoremap <buffer> <C-i> <C-n>
-    autocmd FileType unite nnoremap <buffer> q <C-w>q
-  augroup END
-
   augroup Vim
     autocmd!
     autocmd FileType vim setlocal keywordprg=:help
