@@ -7,6 +7,9 @@
 [submodule ".vim/pack/plugins/start/CamelCaseMotion"]
 	path = .vim/pack/plugins/start/CamelCaseMotion
 	url = https://github.com/bkad/CamelCaseMotion.git
+[submodule ".vim/pack/plugins/start/editorconfig-vim"]
+	path = .vim/pack/plugins/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule ".vim/pack/plugins/start/vim-ps1"]
 	path = .vim/pack/plugins/start/vim-ps1
 	url = https://github.com/PProvost/vim-ps1.git
