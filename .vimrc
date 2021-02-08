@@ -15,8 +15,8 @@ if has('autocmd')
 
   augroup StatusLineColor
     autocmd!
-    autocmd InsertEnter * highlight StatusLine cterm=None ctermbg=5 gui=undercurl guisp=Magenta
-    autocmd InsertLeave * highlight StatusLine cterm=None ctermbg=2 gui=bold
+    autocmd InsertEnter * highlight StatusLine cterm=None ctermbg=5 gui=bold guibg=Magenta
+    autocmd InsertLeave * highlight StatusLine cterm=None ctermbg=2 gui=bold guibg=Green
   augroup END
 
   augroup NERDTree
@@ -48,7 +48,6 @@ if has('autocmd')
     autocmd!
     autocmd FileType help nnoremap <buffer> q <C-w>q
     autocmd FileType help nnoremap <buffer> H <C-t>
-    autocmd FileType help nnoremap <buffer> ; <C-w>w:
     autocmd FileType help nnoremap <buffer> <Backspace> <C-t>
     autocmd FileType help nnoremap <buffer> <CR> <C-]>
     autocmd FileType help nnoremap <buffer> <C-n> <Nop>
@@ -232,6 +231,7 @@ if has('win32')
 else
   set termencoding=UTF-8
 endif
+set termguicolors
 set textwidth=0
 set notitle
 set nowrap
@@ -240,15 +240,15 @@ set wildmenu
 set nowritebackup
 
 scriptencoding utf-8
-colorscheme elflord
+colorscheme evening
 syntax enable
 
 highlight ChangedDefaultHl cterm=bold ctermbg=4 ctermfg=white gui=bold guibg=red guifg=white
 highlight DiffAdd cterm=bold ctermbg=4 guibg=DarkBlue
-highlight LineNr ctermfg=2 ctermbg=4
+highlight LineNr ctermfg=2 ctermbg=4 guifg=Silver guibg=DarkBlue
 highlight NonText cterm=NONE ctermfg=darkgray ctermbg=NONE gui=NONE guifg=#666666 guibg=NONE
 highlight Search cterm=reverse
-highlight StatusLine cterm=None ctermbg=2 gui=bold
+highlight StatusLine cterm=None ctermbg=2 gui=bold guibg=Green
 
 let g:buftabs_only_basename = 1
 let g:buftabs_in_statusline = 1
@@ -271,8 +271,8 @@ let g:lsp_settings = {
 \   },
 \}
 let g:NERDTreeShowHidden = 1
-let g:nerdtree_tabs_autofind = 1 " Automatically find and select currently opened file in NERDTree
-let g:nerdtree_tabs_open_on_console_startup = 1 " Open NERDTree on console vim startup
+let g:nerdtree_tabs_autofind = 0 " Automatically find and select currently opened file in NERDTree
+let g:nerdtree_tabs_open_on_console_startup = 0 " Open NERDTree on console vim startup
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
