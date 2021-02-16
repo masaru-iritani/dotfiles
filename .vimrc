@@ -143,17 +143,19 @@ nnoremap <Tab> gt
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <C-f> :CtrlPCurWD<CR>
 nnoremap <C-o> <Nop>
-nnoremap <C-n> :bn<Return>
-nnoremap <C-p> :bp<Return>
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 if exists(':update') == 2
-  nnoremap <CR> :update<CR>
+  nnoremap <C-s> :update<CR>
 else
   " Use :w for Vim-like applications without the support of :update
-  nnoremap <CR> :w<CR>
+  nnoremap <C-s> :w<CR>
 endif
 if exists(':Changed') == 2 && !has('win32')
   " Automatically :Change on non-Windows computers only because invoking diff is slow and annoying on Windows
   nnoremap <Esc> :noh<CR>:Changed<CR>
+else
+  nnoremap <Esc> :noh<CR>
 endif
 
 if exists('+ambiwidth')
@@ -270,6 +272,7 @@ let g:lsp_settings = {
 \     }
 \   },
 \}
+
 let g:NERDTreeShowHidden = 1
 let g:nerdtree_tabs_autofind = 0 " Automatically find and select currently opened file in NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 0 " Open NERDTree on console vim startup
