@@ -1,9 +1,10 @@
-" Validate against vimrc anti-patterns.
 " cf. https://rbtnn.hateblo.jp/entry/2014/11/30/174749
 
 filetype off
 
-packloadall
+if !exists('g:vscode')
+  packloadall
+endif
 
 if has('autocmd')
   autocmd!
@@ -109,7 +110,6 @@ if has('autocmd')
 
   augroup Vim
     autocmd!
-    autocmd FileType vim setlocal keywordprg=:help
     autocmd BufWritePost .vimrc source %
     autocmd BufWritePost _vimrc source %
   augroup END
@@ -132,8 +132,6 @@ cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-l> <Esc>:nohlsearch<CR>:<BackSpace>
 nnoremap <Space> :CtrlP<CR>
 nnoremap Y y$
 nnoremap : ;
@@ -226,7 +224,6 @@ set statusline+=%Y]\
 if exists('*SkkGetModeStr')
   set statusline+=%{SkkGetModeStr()}\ 
 endif
-set t_Co=256
 set tabstop=4
 if has('win32')
   set termencoding=CP932
@@ -235,6 +232,9 @@ else
 endif
 set termguicolors
 set textwidth=0
+if exists('+setguicolors')
+  set termguicolors
+endif
 set notitle
 set nowrap
 set whichwrap=b,s,<,>,~,[,]
@@ -261,9 +261,6 @@ let g:buftabs_separator_mod = '*'
 let g:camelcasemotion_key = '<leader>'
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_settings = {
-\   'clangd': {
-\     'cmd': ['clangd', '--std=c++17' ]
-\   },
 \   'pyls-all': {
 \     'workspace_config': {
 \       'pyls': {
