@@ -277,6 +277,11 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:quickrun_config = {'*': {'split': '5'}}
 
+" Enable 'termguicolors' for some non-xterm terminals accepting the same sequence with xterm.
+" See also the Vim help for xterm-true-color.
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+
 filetype plugin indent on
 
 " vim:sw=2:ts=2:
