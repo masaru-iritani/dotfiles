@@ -183,7 +183,6 @@ endif
 set expandtab
 set encoding=utf-8
 set formatoptions+=mM
-set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,iso-2022-jp,cp932,utf-16,utf-16le
 set fileformats=dos,unix,mac
 set hidden
