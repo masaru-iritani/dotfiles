@@ -180,6 +180,7 @@ set cpoptions& cpoptions+=$
 if exists('+cursorline')
   set cursorline
 endif
+set directory-=.
 set expandtab
 set encoding=utf-8
 set formatoptions+=mM
