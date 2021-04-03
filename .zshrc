@@ -78,19 +78,13 @@ add-zsh-hook preexec _preexec_resize_tmux_window
 # predict-on
 
 setopt auto_list
-
-# Append / for directory completions
-setopt auto_param_keys
-
+setopt auto_param_keys # Append / for directory completions
 setopt auto_pushd
 setopt auto_menu
 setopt auto_param_keys
 setopt auto_param_slash
 setopt autoremoveslash
-
-# Auto-correct misspelling
-setopt correct
-
+setopt correct # Auto-correct misspelling
 # setopt equals # Expand =cmd into path of cmd
 # setopt extended_glob # Treat '#', '~', and '^' as regular expression
 setopt extended_history # Add timestamp to HISTFILE
@@ -104,27 +98,18 @@ setopt list_packed # Show file completion in compact list
 setopt magic_equal_subst # Expand var=expr
 setopt numeric_glob_sort # Show file completion in numeric order
 # setopt no_clobber # Prohibit overwrite redirect
-
-# Disable C-s and C-q.
-setopt no_flow_control
-
+setopt no_flow_control # Disable C-s and C-q.
 setopt no_hup # Do not exit on C-d
 setopt nolistbeep
 setopt notify # Notify job status immediately
 setopt multios
 setopt print_eight_bit
 # setopt print_exit_value
-
-# Expand variables in prompt messages
-# whenever the prompt is shown.
-setopt prompt_subst
+setopt prompt_subst # Expand variables in prompt messages whenever the prompt is shown
 setopt promptcr
 setopt pushd_ignore_dups
 setopt rm_star_silent
-
-# Share the command history with other terminals.
-setopt share_history
-
+setopt share_history # Share the command history with other terminals
 # setopt single_line_zle
 
 zle -N history-beginning-search-backward-end history-search-end
