@@ -9,10 +9,12 @@ endif
 if has('autocmd')
   autocmd!
 
-  augroup HardMode
-    autocmd!
-    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-  augroup END
+  if exists('*HardMode')
+    augroup HardMode
+      autocmd!
+      autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+    augroup END
+  endif
 
   augroup StatusLineColor
     autocmd!
