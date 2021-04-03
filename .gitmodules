@@ -1,9 +1,6 @@
 [submodule ".vim/pack/plugins/start/vim-buftabline"]
 	path = .vim/pack/plugins/start/vim-buftabline
 	url = https://github.com/ap/vim-buftabline.git
-[submodule ".vim/pack/plugins/start/nerdtree"]
-	path = .vim/pack/plugins/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/pack/plugins/start/CamelCaseMotion"]
 	path = .vim/pack/plugins/start/CamelCaseMotion
 	url = https://github.com/bkad/CamelCaseMotion.git
