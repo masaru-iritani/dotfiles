@@ -136,7 +136,7 @@ export SAVEHIST=$HISTSIZE
 export SPROMPT='%r [nyae]? '
 export VISUAL=$EDITOR
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-export WWW_HOME=https://www.google.com/
+export WWW_HOME=https://duckduckgo.com/
 export XMODIFIERS=@im=ibus
 
 alias R='R --no-save'
