@@ -37,3 +37,6 @@
 [submodule ".vim/pack/plugins/start/fugitive"]
 	path = .vim/pack/plugins/start/fugitive
 	url = https://tpope.io/vim/fugitive.git
+[submodule ".vim/pack/plugins/start/vim-hardtime"]
+	path = .vim/pack/plugins/start/vim-hardtime
+	url = https://github.com/takac/vim-hardtime

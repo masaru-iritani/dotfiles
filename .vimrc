@@ -9,13 +9,6 @@ endif
 if has('autocmd')
   autocmd!
 
-  if exists('*HardMode')
-    augroup HardMode
-      autocmd!
-      autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-    augroup END
-  endif
-
   augroup StatusLineColor
     autocmd!
     autocmd InsertEnter * highlight StatusLine cterm=None ctermbg=5 gui=bold guibg=Magenta
@@ -261,6 +254,9 @@ let g:buftabs_marker_end = ' %0*'
 let g:buftabs_separator = ':'
 let g:buftabs_separator_mod = '*'
 let g:camelcasemotion_key = '<leader>'
+let g:hardtime_allow_different_key = 1
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_settings = {
 \   'pyls-all': {
