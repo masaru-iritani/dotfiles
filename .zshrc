@@ -1,182 +1,106 @@
-#!/usr/bin/env zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-. <(echo "$ALIASES" | awk '$0 {print $0 ~ "alias " ? $0 : "alias " $0}')
-alias mmv='zmv -W'
-alias reload='rehash && . ~/.zprofile && . ~/.zshrc'
-alias w3m='noglob w3m'
-alias zmv='noglob zmv'
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# -U: Do not use aliases in reading functions
-# -z: Load functions in zsh-style (Not used for compatibility)
-autoload -U add-zsh-hook
-autoload -U colors
-autoload -U compinit
-autoload -U hitsory-search-end
-autoload -U is-at-least
-autoload -U vcs_info
-# autoload -U zargs
-# autoload -U zsh/files # Avoid argument length limitation
-# autoload -U predict-on
-autoload -U zmv
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="agkozak"
 
-bindkey -e
-bindkey '^N' history-beginning-search-forward
-bindkey '^P' history-beginning-search-backward
-bindkey '^U' backward-kill-line
-# bindkey -s '^Z' 'q%'
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-colors
-compinit -u
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-export HISTFILE=~/.zsh_history
-export PROMPT='%(!.%{${fg[red]}%}.%{${fg[cyan]}%})%n@%m@20%DT%*%f
-${vcs_info_msg_0_}
-%{${reset_color}%}%(?.%{${fg[green]}%}.%{${fg[red]}%})%(!.#.$)%{${reset_color}%} '
-export RPROMPT=''
-export LANG=ja_JP.UTF-8
-export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:or=01;05;31'
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-function _chpwd_ls() {
-    ls
-}
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-function _precmd_hr() {
-    echo
-    echo "${fg[gray]}$(printf '-%.0s' {1..$COLUMNS})${reset_color}"
-}
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
 
-function _precmd_rename_tmux_window() {
-    if test -n "$TMUX"
-    then
-        tmux -q rename-window $(basename $(print -P '%~')) > /dev/null
-    fi
-}
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-function _precmd_update_screen_title() {
-    if exists screen
-    then
-        screen -X title $(basename $(print -P '%~')) > /dev/null
-    fi
-}
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
-function _preexec_resize_tmux_window() {
-    resize 2> /dev/null | eval
-    if test -n "$TMUX"
-    then
-        tmux -q setw automatic-rename on > /dev/null
-    fi
-}
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-add-zsh-hook chpwd _chpwd_ls
-add-zsh-hook precmd vcs_info
-add-zsh-hook precmd _precmd_hr
-add-zsh-hook precmd _precmd_rename_tmux_window
-add-zsh-hook precmd _precmd_update_screen_title
-add-zsh-hook preexec _preexec_resize_tmux_window
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# limit coredumpsize 0 # error on Cygwin
-# predict-on
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-setopt auto_list
-setopt auto_param_keys # Append / for directory completions
-setopt auto_pushd
-setopt auto_menu
-setopt auto_param_keys
-setopt auto_param_slash
-setopt autoremoveslash
-setopt correct # Auto-correct misspelling
-# setopt equals # Expand =cmd into path of cmd
-# setopt extended_glob # Treat '#', '~', and '^' as regular expression
-setopt extended_history # Add timestamp to HISTFILE
-setopt hist_ignore_all_dups # Eliminate all duplication
-setopt hist_ignore_dups # Eliminate neighbor duplication
-setopt hist_ignore_space
-setopt hist_save_nodups
-# setopt hist_verify # Edit history expansion like !$ before execution
-setopt list_types # Show file type in completion like ls -F
-setopt list_packed # Show file completion in compact list
-setopt magic_equal_subst # Expand var=expr
-setopt numeric_glob_sort # Show file completion in numeric order
-# setopt no_clobber # Prohibit overwrite redirect
-setopt no_flow_control # Disable C-s and C-q.
-setopt no_hup # Do not exit on C-d
-setopt nolistbeep
-setopt notify # Notify job status immediately
-setopt multios
-setopt print_eight_bit
-# setopt print_exit_value
-setopt prompt_subst # Expand variables in prompt messages whenever the prompt is shown
-setopt promptcr
-setopt pushd_ignore_dups
-setopt rm_star_silent
-setopt share_history # Share the command history with other terminals
-# setopt single_line_zle
+# Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+COMPLETION_WAITING_DOTS="true"
 
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' format '%B*%d*%b'
-zstyle ':completion:*' verbose yes
-# Ignore the case when there is no exact-matching completion.
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle ':completion:*:default' menu select=1
-zstyle ':completion:*:descriptions' format '%F{gray}%d%f'
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="yyyy-mm-dd"
 
-# actionformats is a list of formats, used if there is a special action
-# like an interactive rebase or a merge conflict.
-zstyle ':vcs_info:*' actionformats '%s:%R//%S:%b (%a)'
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats '%F{green}%s:%m:%b%c%u:%F{gray}%R%F{green}/%S%f'
-zstyle ':vcs_info:*' nvcsformats '%F{yellow}%~%f'
-zstyle ':vcs_info:*' stagedstr '%F{red}*%f'
-zstyle ':vcs_info:*' unstagedstr '%F{red}+%f'
-zstyle ':vcs_info:git+set-message:*' hooks git-config-user
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Defines a hook function to store the Git user e-mail address into %m.
-function +vi-git-config-user() {
-    hook_com[misc]+=`git config user.email`
-}
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+    git
+    tmux
+    z
+    zsh_reload
+)
 
-# Load zsh plugins.
-if [[ -f ~/.zplug/init.zsh ]]
-then
-    source ~/.zplug/init.zsh
-    zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+source $ZSH/oh-my-zsh.sh
 
-    # Synchronize the system clipboard with the ZLE buffer.
-    typeset -g ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
-    zplug 'kutsan/zsh-system-clipboard'
+# User configuration
 
-    if ! zplug check
-    then
-        zplug install
-    fi
+# export MANPATH="/usr/local/man:$MANPATH"
 
-    zplug load
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-    bindkey '^V' zsh-system-clipboard-vicmd-vi-put-before
-else
-    echo "${fg[yellow]}zplug is unavailable.${reset_color}" 2>&1 1>/dev/null | cat
-fi
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# Attach or create a tmux session.
-if exists tmux
-then
-    if test -z "$TMUX"
-    then
-        tmux attach-session 2> /dev/null || tmux new-session
-    fi
-fi
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f ~/node_modules/tabtab/.completions/serverless.zsh ]] && . ~/node_modules/tabtab/.completions/serverless.zsh
-
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f ~/node_modules/tabtab/.completions/sls.zsh ]] && . ~/node_modules/tabtab/.completions/sls.zsh
-
-_chpwd_ls
-true
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"

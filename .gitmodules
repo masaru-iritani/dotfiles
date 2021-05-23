@@ -40,3 +40,6 @@
 [submodule ".vim/pack/plugins/start/vim-hardtime"]
 	path = .vim/pack/plugins/start/vim-hardtime
 	url = https://github.com/takac/vim-hardtime
+[submodule "agkozak-zsh-prompt"]
+	path = agkozak-zsh-prompt
+	url = https://github.com/agkozak/agkozak-zsh-prompt
