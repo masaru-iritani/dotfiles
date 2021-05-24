@@ -200,7 +200,6 @@ endif
 if exists('+relativenumber')
   set relativenumber
 endif
-set scrolloff=15498
 set shiftwidth=4
 set showcmd
 set showmatch
@@ -225,11 +224,10 @@ if has('win32')
 else
   set termencoding=UTF-8
 endif
-set termguicolors
-set textwidth=0
 if exists('+setguicolors')
   set termguicolors
 endif
+set textwidth=0
 set notitle
 set nowrap
 set whichwrap=b,s,<,>,~,[,]
@@ -237,7 +235,7 @@ set wildmenu
 set nowritebackup
 
 scriptencoding utf-8
-colorscheme evening
+colorscheme elflord
 syntax enable
 
 highlight ChangedDefaultHl cterm=bold ctermbg=4 ctermfg=white gui=bold guibg=red guifg=white
