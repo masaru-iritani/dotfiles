@@ -144,12 +144,6 @@ else
   " Use :w for Vim-like applications without the support of :update
   nnoremap <C-s> :w<CR>
 endif
-if exists(':Changed') == 2 && !has('win32')
-  " Automatically :Change on non-Windows computers only because invoking diff is slow and annoying on Windows
-  nnoremap <Esc> :noh<CR>:Changed<CR>
-else
-  nnoremap <Esc> :noh<CR>
-endif
 
 if exists('+ambiwidth')
   set ambiwidth=double
