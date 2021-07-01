@@ -139,10 +139,10 @@ nnoremap <C-o> <Nop>
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
 if exists(':update') == 2
-  nnoremap <C-s> :update<CR>
+  nnoremap <CR> :update<CR>
 else
   " Use :w for Vim-like applications without the support of :update
-  nnoremap <C-s> :w<CR>
+  nnoremap <CR> :w<CR>
 endif
 
 if exists('+ambiwidth')
