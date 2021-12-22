@@ -1,5 +1,3 @@
-" cf. https://rbtnn.hateblo.jp/entry/2014/11/30/174749
-
 filetype off
 
 if !exists('g:vscode')
@@ -169,7 +167,11 @@ set cpoptions& cpoptions+=$
 if exists('+cursorline')
   set cursorline
 endif
+
+" Avoid saving swap files in the current directory.
+" Otherwise, version control systems treat them as new files.
 set directory-=.
+
 set expandtab
 set encoding=utf-8
 set formatoptions+=mM
@@ -228,16 +230,21 @@ set whichwrap=b,s,<,>,~,[,]
 set wildmenu
 set nowritebackup
 
-scriptencoding utf-8
-colorscheme elflord
+" torte looks better to me than evening in PowerShell.
+colorscheme torte
+
 syntax enable
 
-highlight ChangedDefaultHl cterm=bold ctermbg=4 ctermfg=white gui=bold guibg=red guifg=white
+" Note: Some terminals (e.g., DOS console) can't mix these attributes
+" with coloring. To be portable, use only one of "cterm=" OR "ctermfg="
+" OR "ctermbg=".
+highlight ChangedDefaultHl cterm=bold ctermbg=4 ctermfg=White gui=bold guibg=red guifg=white
+highlight CursorLine cterm=standout
 highlight DiffAdd cterm=bold ctermbg=4 guibg=DarkBlue
-highlight LineNr ctermfg=2 ctermbg=4 guifg=Silver guibg=DarkBlue
+highlight LineNr ctermfg=DarkGreen ctermbg=DarkBlue guifg=Silver guibg=DarkBlue
 highlight NonText cterm=NONE ctermfg=darkgray ctermbg=NONE gui=NONE guifg=#666666 guibg=NONE
 highlight Search cterm=reverse
-highlight StatusLine cterm=None ctermbg=2 gui=bold guibg=Green
+highlight StatusLine ctermfg=White ctermbg=DarkGreen gui=bold guibg=Green
 
 let g:buftabs_only_basename = 1
 let g:buftabs_in_statusline = 1
