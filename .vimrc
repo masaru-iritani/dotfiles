@@ -118,8 +118,6 @@ if has('autocmd')
   augroup END
 endif
 
-chdir ~
-
 cnoremap <C-a> <C-b>
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
