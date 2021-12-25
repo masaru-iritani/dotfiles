@@ -9,8 +9,8 @@ if has('autocmd')
 
   augroup StatusLineColor
     autocmd!
-    autocmd InsertEnter * highlight StatusLine cterm=None ctermbg=5 gui=bold guibg=Magenta
-    autocmd InsertLeave * highlight StatusLine cterm=None ctermbg=2 gui=bold guibg=Green
+    autocmd InsertEnter * highlight StatusLine cterm=None ctermfg=White ctermbg=DarkMagenta gui=bold guibg=Magenta
+    autocmd InsertLeave * highlight StatusLine cterm=None ctermfg=White ctermbg=DarkGreen gui=bold guibg=Green
   augroup END
 
   augroup NERDTree
@@ -242,7 +242,7 @@ highlight DiffAdd cterm=bold ctermbg=4 guibg=DarkBlue
 highlight LineNr ctermfg=DarkGreen ctermbg=DarkBlue guifg=Silver guibg=DarkBlue
 highlight NonText cterm=NONE ctermfg=darkgray ctermbg=NONE gui=NONE guifg=#666666 guibg=NONE
 highlight Search cterm=reverse
-highlight StatusLine ctermfg=White ctermbg=DarkGreen gui=bold guibg=Green
+highlight StatusLine cterm=None ctermfg=White ctermbg=DarkGreen gui=bold guibg=Green
 
 let g:buftabs_only_basename = 1
 let g:buftabs_in_statusline = 1
