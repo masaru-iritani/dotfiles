@@ -13,14 +13,13 @@ if has('autocmd')
     autocmd InsertLeave * highlight StatusLine cterm=None ctermfg=White ctermbg=DarkGreen gui=bold guibg=Green
   augroup END
 
-  augroup NERDTree
+  augroup Netrw
     autocmd!
-    autocmd FileType nerdtree nnoremap <buffer> q <Nop>
-    autocmd FileType nerdtree nnoremap <buffer> ; <C-w>w:
-    autocmd FileType nerdtree nnoremap <buffer> <C-n> <Nop>
-    autocmd FileType nerdtree nnoremap <buffer> <C-o> <Nop>
-    autocmd FileType nerdtree nnoremap <buffer> <C-p> <Nop>
-    autocmd FileType nerdtree nnoremap <buffer> <C-w>q <Nop>
+    autocmd FileType netrw nnoremap <buffer> q <C-w>q
+    autocmd FileType netrw nnoremap <buffer> <C-n> <Nop>
+    autocmd FileType netrw nnoremap <buffer> <C-o> <Nop>
+    autocmd FileType netrw nnoremap <buffer> <C-p> <Nop>
+    autocmd VimEnter * :silent! Lexplore
   augroup END
 
   augroup Tex
@@ -265,9 +264,10 @@ let g:lsp_settings = {
 \   },
 \}
 
-let g:NERDTreeShowHidden = 1
-let g:nerdtree_tabs_autofind = 0 " Automatically find and select currently opened file in NERDTree
-let g:nerdtree_tabs_open_on_console_startup = 0 " Open NERDTree on console vim startup
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 15
+let g:netrw_wiw = 15
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
