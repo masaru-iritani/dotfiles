@@ -7,5 +7,5 @@ endif
 set ambiwidth=double
 set cmdheight=1
 set columns=120
-set guifont=MigMix_1M:h12:cSHIFTJIS
+set guifont=MigMix_1M:h10:cSHIFTJIS,Cascadia_Mono:h10
 set guioptions=a
