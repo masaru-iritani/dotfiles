@@ -19,7 +19,6 @@ if has('autocmd')
     autocmd FileType netrw nnoremap <buffer> <C-n> <Nop>
     autocmd FileType netrw nnoremap <buffer> <C-o> <Nop>
     autocmd FileType netrw nnoremap <buffer> <C-p> <Nop>
-    autocmd VimEnter * :silent! Lexplore
   augroup END
 
   augroup Tex
