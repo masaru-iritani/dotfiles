@@ -152,6 +152,7 @@ git config --global alias.ci commit
 git config --global alias.co checkout
 git config --global alias.df diff
 git config --global alias.ds 'diff --staged'
+git config --global alias.fa 'fetch --all --prune'
 git config --global alias.st status
 
 # LS OPTS
