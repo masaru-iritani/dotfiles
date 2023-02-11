@@ -147,6 +147,13 @@ alias jobs='jobs -l'
 alias ls_l='ls -l'
 alias tail='tail -n`resize 2> /dev/null | eval; expr $LINES - 2`'
 
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.co checkout
+git config --global alias.df diff
+git config --global alias.ds 'diff --staged'
+git config --global alias.st status
+
 # LS OPTS
 case "`uname -s`" in
 Darwin*)
