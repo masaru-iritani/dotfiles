@@ -145,7 +145,12 @@ alias dir='ls -al'
 alias ipconfig='ifconfig'
 alias jobs='jobs -l'
 alias ls_l='ls -l'
-alias tail='tail -n`resize 2> /dev/null | eval; expr $LINES - 2`'
+
+# Mac may not have resize command.
+if exists resize
+then
+    alias tail='tail -n`resize 2> /dev/null | eval; expr $LINES - 2`'
+fi
 
 git config --global alias.br branch
 git config --global alias.ci commit
