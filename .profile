@@ -97,6 +97,9 @@ path add {,~}/{,usr/{,local/{,lib/mailman/bin/}}}{{,s}bin,libexec}
 # Add pip binaries (e.g. flake8)
 path add ~/.local/bin
 
+# Add psql path on Mac
+path add /usr/local/opt/libpq/bin
+
 if [ "${UID}" = "0" ]
 then
     export LANG=C
