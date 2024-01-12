@@ -1,6 +1,6 @@
 export HISTFILE="$HOME/.bash_history"
 
-if exists starship
+if which starship &> /dev/null
 then
     eval "$(starship init bash)"
 else
@@ -12,7 +12,7 @@ else
     PS1="${PS1}\[\033[33m\]"
     PS1="${PS1}\w"
     PS1="${PS1}\[\033[36m\]"
-    if which __git_ps1 > /dev/null 2>&1
+    if which __git_ps1 &> /dev/null
     then
         PS1="${PS1}\`__git_ps1\`"
     fi
