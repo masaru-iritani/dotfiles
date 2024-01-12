@@ -1,10 +1,23 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
-format = '$time$all'
+format = '$time$cmd_duration$container$all$line_break$character'
 
 [character]
 success_symbol = '[>](bold green)'
 error_symbol = '[>](bold red)'
+
+[cmd_duration]
+min_time = 1000
+format = '\(+$duration\) '
+show_notifications = false
+
+[container]
+format = '[$symbol]($style) '
+style = 'bold cyan'
+symbol = ''
+
+[gcloud]
+disabled = true
 
 [git_branch]
 format = '[$symbol$branch]($style) '
@@ -12,8 +25,12 @@ format = '[$symbol$branch]($style) '
 [git_metrics]
 disabled = false
 
-[gcloud]
+[golang]
 disabled = true
+
+[status]
+disabled = false
+style = 'fg:white bg:red bold'
 
 [time]
 disabled = false
