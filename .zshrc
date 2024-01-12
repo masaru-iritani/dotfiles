@@ -8,7 +8,14 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME='ys'
+if which starship &> /dev/null
+then
+  eval "$(starship init zsh)"
+  unset ZSH_THEME
+else
+  echo -e "\033[33mSkipped initializing Starship because it's not installed.\033[0m"
+  ZSH_THEME='ys'
+fi
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,7 +81,7 @@ plugins=(
   z
 )
 
-if exists tmux
+if which tmux &> /dev/null
 then
   plugins+=(tmux)
 fi
@@ -112,8 +119,3 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-if exists starship
-then
-  eval "$(starship init zsh)"
-fi

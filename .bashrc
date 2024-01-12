@@ -4,6 +4,7 @@ if exists starship
 then
     eval "$(starship init bash)"
 else
+    echo -e "\033[33mSkipped initializing Starship because it's not installed.\033[0m"
     PS1="\n"
     PS1="${PS1}\[\033[1;32m\]"
     PS1="${PS1}\`date '+%Y-%m-%dT%H:%M:%S'\`"
