@@ -1,0 +1,21 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+format = '$time$all'
+
+[character]
+success_symbol = '[>](bold green)'
+error_symbol = '[>](bold red)'
+
+[git_branch]
+format = '[$symbol$branch]($style) '
+
+[git_metrics]
+disabled = false
+
+[gcloud]
+disabled = true
+
+[time]
+disabled = false
+format = '[$time]($style)'
+time_format = '%F %T '
