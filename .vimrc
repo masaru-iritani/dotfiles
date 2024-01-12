@@ -264,6 +264,7 @@ let g:lsp_settings = {
 \}
 
 let g:netrw_banner = 0
+let g:netrw_home = '~/.cache/vim'
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 15
 let g:netrw_wiw = 15
