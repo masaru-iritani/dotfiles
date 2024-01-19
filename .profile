@@ -100,15 +100,6 @@ path add ~/.local/bin
 # Add psql path on Mac
 path add /usr/local/opt/libpq/bin
 
-if [ "${UID}" = "0" ]
-then
-    export LANG=C
-    export PS1="`whoami`@`hostname`# "
-else
-    export LANG=ja_JP.UTF-8
-    export PS1="`whoami`@`hostname`$ "
-fi
-
 if exists vim
 then
     export EDITOR=vim
@@ -122,6 +113,10 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 export GTK_IM_MODULE=ibus
 export HISTFILE=~/.bash_history
 export HISTSIZE=1000000
+if [ "${UID}" != "0" ]
+then
+    locale -a | grep --quiet 'ja_JP.UTF-8' && export LANG=ja_JP.UTF-8
+fi
 export LISTMAX=0
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:or=01;05;31'
 if exists lv
@@ -132,6 +127,12 @@ else
 fi
 export PKG_PATH="https://cloudflare.cdn.openbsd.org/pub/`uname -s`/`uname -r`/packages/`uname -m`/"
 export PROMPT2='> '
+if [ "${UID}" = "0" ]
+then
+    export PS1="`whoami`@`hostname`# "
+else
+    export PS1="`whoami`@`hostname`$ "
+fi
 export QT_IM_MODULE=ibus
 export R_LIBS_SITE=`ls -d "~/R/*/*" 2> /dev/null`
 export RPROMPT="[%{[33m%}%~%{[m%}] "
