@@ -144,6 +144,12 @@ export WWW_HOME=https://duckduckgo.com/
 export XMODIFIERS=@im=ibus
 
 alias R='R --no-save'
+if exists batcat
+then
+    # The executable of bat is `batcat` when installed by apt on Ubuntu.
+    # https://github.com/sharkdp/bat?tab=readme-ov-file#on-ubuntu-using-apt
+    alias bat='batcat'
+fi
 alias cls='clear'
 alias dir='ls -al'
 alias ipconfig='ifconfig'
