@@ -71,6 +71,10 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+VI_MODE_SET_CURSOR=true
+VI_MODE_CURSOR_NORMAL=1
+VI_MODE_CURSOR_INSERT=5
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -78,6 +82,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  vi-mode
   z
 )
 
@@ -95,6 +100,10 @@ if [[ $? -ne 0 ]]
 then
     export HISTFILE="$HOME/.zsh_history"
 fi
+
+bindkey '^b' backward-char
+bindkey '^f' forward-char
+bindkey '^k' kill-line
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
