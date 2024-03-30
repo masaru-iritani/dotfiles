@@ -91,7 +91,13 @@ then
   plugins+=(tmux)
 fi
 
-source $ZSH/oh-my-zsh.sh
+oh_my_zsh_sh="$ZSH/oh-my-zsh.sh"
+if [ -f $oh_my_zsh_sh ]
+then
+    source $oh_my_zsh_sh
+else
+  echo -e "\033[33mSkipped sourcing Oh My Zsh because it's not installed.\033[0m"
+fi
 
 # User configuration
 
