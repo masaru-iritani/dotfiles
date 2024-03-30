@@ -22,7 +22,8 @@ files=(
     .zprofile
     .zshrc
 )
-for f in files
+
+for f in ${files[@]}
 do
     ln --force --symbolic $SCRIPT_DIR/$f ~
 done
@@ -32,7 +33,7 @@ mkdir --parents ~/.config
 files=(
     starship.toml
 )
-for f in $files
+for f in ${files[@]}
 do
     ln --force --symbolic $SCRIPT_DIR/.config/$f  ~/.config
 done
