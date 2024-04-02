@@ -74,6 +74,7 @@ plugins=(
   git
   starship
   vi-mode
+  yarn
   z
 )
 
