@@ -63,6 +63,10 @@ VI_MODE_SET_CURSOR=true
 VI_MODE_CURSOR_NORMAL=1
 VI_MODE_CURSOR_INSERT=5
 
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOCONNECT=true
+ZSH_TMUX_AUTOQUIT=false
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -73,15 +77,11 @@ plugins=(
   direnv
   git
   starship
+  tmux
   vi-mode
   yarn
   z
 )
-
-if which tmux &> /dev/null
-then
-  plugins+=(tmux)
-fi
 
 oh_my_zsh_sh="$ZSH/oh-my-zsh.sh"
 if [ -f $oh_my_zsh_sh ]
