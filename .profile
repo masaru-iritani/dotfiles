@@ -100,6 +100,10 @@ path add ~/.local/bin
 # Add psql path on Mac
 path add /usr/local/opt/libpq/bin
 
+# Add Go installed binaries
+path add $GOBIN
+path add $GOPATH/bin
+
 if exists vim
 then
     export EDITOR=vim
