@@ -60,8 +60,6 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 VI_MODE_SET_CURSOR=true
-VI_MODE_CURSOR_NORMAL=1
-VI_MODE_CURSOR_INSERT=5
 
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=true
@@ -126,3 +124,8 @@ bindkey '^k' kill-line
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Setting VI_MODE_CURSOR_* as environment variables or
+# setting before sourcing Oh My Zsh won't take effect.
+typeset -g VI_MODE_CURSOR_NORMAL=1
+typeset -g VI_MODE_CURSOR_INSERT=5
