@@ -92,7 +92,7 @@ then
     }
 fi
 
-path add {,~}/{,usr/{,local/{,lib/mailman/bin/}}}{{,s}bin,libexec}
+path add {,~}/{,usr/{,local/}}{{,s}bin}
 
 # Add pip binaries (e.g. flake8)
 path add ~/.local/bin
