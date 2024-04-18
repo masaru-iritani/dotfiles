@@ -21,10 +21,17 @@ symbol = ''
 disabled = true
 
 [git_branch]
-format = '[$symbol$branch]($style) '
+always_show_remote = true
+format = '[$symbol$branch(  $remote_name)(/$remote_branch)]($style) '
 
 [git_metrics]
-disabled = false
+disabled = true
+
+[git_state]
+disabled = true
+
+[git_status]
+disabled = true
 
 [golang]
 disabled = true
