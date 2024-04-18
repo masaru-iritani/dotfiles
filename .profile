@@ -5,6 +5,8 @@ exists() {
     which $1 2> /dev/null > /dev/null
 }
 
+gcm() { git checkout --no-track origin/main -b masaru-iritani/$@ }
+
 path() {
     case $1 in
         "add")
