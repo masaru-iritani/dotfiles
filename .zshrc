@@ -73,6 +73,7 @@ ZSH_TMUX_AUTOQUIT=false
 plugins=(
   asdf
   direnv
+  docker
   git
   starship
   tmux
