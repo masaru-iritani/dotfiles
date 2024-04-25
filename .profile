@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Search aliases matched with the specified pattern
+a() {
+    alias | grep "$*"
+}
+
 # Checks if a command in the first argument exists or not.
 exists() {
     which $1 2> /dev/null > /dev/null
