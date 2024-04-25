@@ -163,6 +163,7 @@ then
 fi
 alias cls='clear'
 alias dir='ls -al'
+alias gdm='git diff `git merge-base origin/main HEAD`'
 alias ipconfig='ifconfig'
 alias jobs='jobs -l'
 alias ls_l='ls -l'
