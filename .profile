@@ -15,6 +15,10 @@ new_feature_branch() {
     git checkout --no-track origin/main -b masaru-iritani/$@
 }
 
+delete_merged_branches() {
+    git branch --merged | grep -v '\*' | xargs git branch --delete
+}
+
 path() {
     case $1 in
         "add")
