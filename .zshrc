@@ -75,6 +75,7 @@ plugins=(
   direnv
   docker
   git
+  golang
   starship
   tmux
   vi-mode
