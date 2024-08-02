@@ -74,8 +74,10 @@ plugins=(
   asdf
   direnv
   docker
+  gcloud
   git
   golang
+  magic-enter
   starship
   tmux
   vi-mode
