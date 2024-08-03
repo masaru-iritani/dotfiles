@@ -75,6 +75,7 @@ plugins=(
   direnv
   docker
   gcloud
+  gh
   git
   golang
   magic-enter
