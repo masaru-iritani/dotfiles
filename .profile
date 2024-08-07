@@ -13,6 +13,7 @@ exists() {
 new_feature_branch() {
     git fetch --all --prune
     git checkout --no-track origin/main -b masaru-iritani/$@
+    delete_merged_branches
 }
 
 delete_merged_branches() {
