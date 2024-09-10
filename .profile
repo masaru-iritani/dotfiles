@@ -167,7 +167,9 @@ then
 fi
 alias cls='clear'
 alias dir='ls -al'
-alias gdm='git diff `git merge-base origin/main HEAD`'
+alias gdom='git diff --merge-base origin/main'
+alias glom='git log origin/main..HEAD'
+alias gnom='git log --name-only origin/main..HEAD'
 alias ipconfig='ifconfig'
 alias jobs='jobs -l'
 alias ls_l='ls -l'
@@ -177,14 +179,6 @@ if exists resize
 then
     alias tail='tail -n`resize 2> /dev/null | eval; expr $LINES - 2`'
 fi
-
-git config --global alias.br branch
-git config --global alias.ci commit
-git config --global alias.co checkout
-git config --global alias.df diff
-git config --global alias.ds 'diff --staged'
-git config --global alias.fa 'fetch --all --prune'
-git config --global alias.st status
 
 # LS OPTS
 case "`uname -s`" in
