@@ -168,6 +168,7 @@ fi
 alias cls='clear'
 alias dir='ls -al'
 alias gdom='git diff --merge-base origin/main'
+alias ghg='git --no-pager log -n 1 --format=%H%n --grep'
 alias glom='git log origin/main..HEAD'
 alias gnom='git log --name-only origin/main..HEAD'
 alias ipconfig='ifconfig'
