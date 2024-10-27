@@ -14,6 +14,8 @@ if status is-interactive
     abbr --add gnom git log --name-only origin/main..HEAD
     abbr --add reload source ~/.config/fish/config.fish
 
+    fish_config theme choose Nord
+
     set -g fish_key_bindings fish_hybrid_key_bindings
     set fish_cursor_default block blink
     set fish_cursor_insert line blink
