@@ -7,6 +7,13 @@ function fish_hybrid_key_bindings --description \
     fish_vi_key_bindings --no-erase
 end
 
+function new_feature_branch --description \
+    "Create a new feature branch prefixed with the GitHub user name"
+    git fetch --all --prune
+    git checkout --no-track origin/main -b masaru-iritani/$argv
+    gbda
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     abbr --add ghg git --no-pager log -n 1 --format=%H%n --grep
