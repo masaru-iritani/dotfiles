@@ -31,6 +31,7 @@ done
 # Make symbolic links under ~/.config
 mkdir --parents ~/.config
 files=(
+    fish
     starship.toml
 )
 for f in ${files[@]}
