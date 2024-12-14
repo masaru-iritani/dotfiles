@@ -84,6 +84,7 @@ plugins=(
   vi-mode
   yarn
   z
+  zbell
 )
 
 oh_my_zsh_sh="$ZSH/oh-my-zsh.sh"
