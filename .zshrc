@@ -75,6 +75,7 @@ plugins=(
   asdf
   direnv
   docker
+  fzf
   gcloud
   gh
   git

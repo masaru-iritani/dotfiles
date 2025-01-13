@@ -167,6 +167,12 @@ then
 fi
 alias cls='clear'
 alias dir='ls -al'
+if exists fdfind
+then
+    # The executable of fd is `fdfind` when installed by apt on Ubuntu.
+    # https://github.com/sharkdp/fd?tab=readme-ov-file#on-ubuntu
+    alias fd=fdfind
+fi
 alias gdom='git diff --merge-base origin/main'
 alias ghg='git --no-pager log -n 1 --format=%H%n --grep'
 alias glom='git log origin/main..HEAD'
