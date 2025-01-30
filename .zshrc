@@ -85,6 +85,7 @@ plugins=(
   git
   golang
   magic-enter
+  ngrok
   starship
   tmux
   vi-mode
