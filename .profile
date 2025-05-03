@@ -174,7 +174,7 @@ then
     alias fd=fdfind
 fi
 alias gcfui='gc --fixup $(git log --oneline origin/main..HEAD --reverse | fzf | awk '\''{print $1}'\'')'
-alias gci='git branch --format="%(refname:short)" | fzf | xargs git checkout'
+alias gci='git branch --color --verbose | fzf --ansi | cut -c3- | cut -d" " -f1 | xargs git checkout'
 alias gdom='git diff --merge-base origin/main'
 alias gfu='git commit --fixup'
 alias ghg='git --no-pager log -n 1 --format=%H%n --grep'
