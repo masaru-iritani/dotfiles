@@ -173,10 +173,10 @@ then
     # https://github.com/sharkdp/fd?tab=readme-ov-file#on-ubuntu
     alias fd=fdfind
 fi
+alias gcfui='gc --fixup $(git log --oneline origin/main..HEAD --reverse | fzf | awk '\''{print $1}'\'')'
 alias gci='git branch --format="%(refname:short)" | fzf | xargs git checkout'
 alias gdom='git diff --merge-base origin/main'
 alias gfu='git commit --fixup'
-alias gfui='gc --fixup $(git log --oneline origin/main..HEAD --reverse | fzf | awk '\''{print $1}'\'')'
 alias ghg='git --no-pager log -n 1 --format=%H%n --grep'
 alias glom='git log origin/main..HEAD'
 alias gnom='git log --name-only origin/main..HEAD'
