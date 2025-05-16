@@ -111,9 +111,12 @@ path add ~/.local/bin
 # Add psql path on Mac
 path add /usr/local/opt/libpq/bin
 
-# Add Go installed binaries
-path add $GOBIN
-path add $GOPATH/bin
+# Add Go paths
+if exists go
+then
+    path add "`go env GOBIN`"
+    path add "`go env GOPATH`/bin"
+fi
 
 if exists vim
 then
