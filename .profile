@@ -231,3 +231,9 @@ if [ -f "~/.profile.`hostname`" ]
 then
     . ~/.profile.`hostname`
 fi
+
+# LOAD ASDF
+if [ -f "$HOME/.asdf/asdf.sh" ]
+then
+    . "$HOME/.asdf/asdf.sh"
+fi
