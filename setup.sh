@@ -39,3 +39,4 @@ do
     ln --force --symbolic $SCRIPT_DIR/.config/$f  ~/.config
 done
 
+git config --global include.path "$SCRIPT_DIR/.gitconfig"
