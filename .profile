@@ -11,7 +11,7 @@ exists() {
 }
 
 new_feature_branch() {
-    git fetch --all --prune
+    git fetch
     git checkout --no-track origin/main -b masaru-iritani/$@
     gbda
 }
@@ -185,8 +185,8 @@ alias gfu='git commit --fixup'
 alias ghg='git --no-pager log -n 1 --format=%H%n --grep'
 alias glom='git log origin/main..HEAD'
 alias gnom='git log --name-only origin/main..HEAD'
-alias grboma='git rebase --autosquash --autostash origin/main'
-alias grbomi='git rebase --autosquash --autostash --interactive origin/main'
+alias grhs1='git reset --soft HEAD^'
+alias grbomi='git rebase --interactive origin/main'
 alias ipconfig='ifconfig'
 alias jobs='jobs -l'
 alias ls_l='ls -l'
