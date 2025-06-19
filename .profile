@@ -10,9 +10,10 @@ exists() {
     which $1 2> /dev/null > /dev/null
 }
 
-new_feature_branch() {
+gcoomb() {
     git fetch
-    git checkout --no-track origin/main -b masaru-iritani/$@
+    git branch --no-track masaru-iritani/$@ origin/main
+    git worktree add `git rev-parse --show-toplevel`/../$@ masaru-iritani/$@
     gbda
 }
 
