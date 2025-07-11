@@ -1,7 +1,7 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 command_timeout = 5000
-format = '$time$cmd_duration$shell$container$all$line_break$character'
+format = '$time$cmd_duration$os$shell$container$all$line_break$character'
 
 [character]
 success_symbol = '[>](bold green)'
@@ -38,6 +38,9 @@ disabled = true
 
 [nodejs]
 disabled = true
+
+[os]
+disabled = false
 
 [shell]
 disabled = false
