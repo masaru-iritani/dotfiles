@@ -179,7 +179,7 @@ then
 fi
 alias gbDi='git branch --color --verbose | fzf --ansi | cut -c3- | cut -d" " -f1 | xargs git branch -D'
 alias gbdi='git branch --color --verbose | fzf --ansi | cut -c3- | cut -d" " -f1 | xargs git branch -d'
-alias gcfui='gc --fixup $(git log --oneline origin/main..HEAD --reverse | fzf | awk '\''{print $1}'\'')'
+alias gcfui='git commit --fixup $(git log --oneline origin/main..HEAD --reverse | fzf | awk '\''{print $1}'\'') && git rebase --autosquash --autostash $(git merge-base origin/main HEAD)'
 alias gci='git branch --color --verbose | fzf --ansi | cut -c3- | cut -d" " -f1 | xargs git checkout'
 alias gdom='git diff --merge-base origin/main'
 alias gfu='git commit --fixup'
