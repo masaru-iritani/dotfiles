@@ -137,7 +137,7 @@ then
     locale -a | grep --quiet 'ja_JP.UTF-8' && export LANG=ja_JP.UTF-8
 fi
 export LISTMAX=0
-export LESS="--quit-if-one-screen"
+export LESS="--quit-if-one-screen --raw-control-chars --use-color"
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:or=01;05;31'
 if exists lv
 then
