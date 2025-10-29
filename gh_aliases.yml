@@ -1,0 +1,11 @@
+ae: '!gh alias list > ~/dotfiles/gh_aliases.yml'
+ai: '!gh alias import --clobber ~/dotfiles/gh_aliases.yml'
+co: pr checkout
+homework: issue list --assignee @me
+inbox: issue list --mention @me
+iv: issue view
+iw: issue view --web
+pm: pr merge --author-email $(git config user.email)
+pv: pr view
+pw: pr view --web
+readygo: '!gh pr checks --watch --fail-fast && gh pr ready'
