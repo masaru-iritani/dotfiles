@@ -235,7 +235,6 @@ syntax enable
 " with coloring. To be portable, use only one of "cterm=" OR "ctermfg="
 " OR "ctermbg=".
 highlight ChangedDefaultHl cterm=bold ctermbg=4 ctermfg=White gui=bold guibg=red guifg=white
-highlight CursorLine cterm=standout
 highlight DiffAdd cterm=bold ctermbg=4 guibg=DarkBlue
 highlight LineNr ctermfg=DarkGreen ctermbg=DarkBlue guifg=Silver guibg=DarkBlue
 highlight NonText cterm=NONE ctermfg=darkgray ctermbg=NONE gui=NONE guifg=#666666 guibg=NONE
