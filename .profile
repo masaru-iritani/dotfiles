@@ -12,9 +12,7 @@ exists() {
 
 gcoomb() {
     git fetch
-    git branch --no-track masaru-iritani/$@ origin/main
-    git worktree add `git rev-parse --show-toplevel`/../$@ masaru-iritani/$@
-    gbda
+    git branch --no-track masaru-iritani/$1 origin/main
 }
 
 path() {
