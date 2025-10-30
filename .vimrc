@@ -125,8 +125,6 @@ nnoremap <Space> :CtrlP<CR>
 nnoremap Y y$
 nnoremap : ;
 nnoremap ; :
-nnoremap <S-Tab> gT
-nnoremap <Tab> gt
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <C-f> :CtrlPCurWD<CR>
 nnoremap <C-o> <Nop>
