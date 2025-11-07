@@ -12,7 +12,7 @@ exists() {
 
 gcoomb() {
     git fetch
-    git branch --no-track masaru-iritani/$1 origin/main
+    git checkout --no-track origin/main -b masaru-iritani/$1
 }
 
 path() {
