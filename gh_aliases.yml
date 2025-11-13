@@ -5,7 +5,9 @@ homework: issue list --assignee @me
 inbox: issue list --mention @me
 iv: issue view
 iw: issue view --web
+pc: pr commit
 pm: pr merge --author-email $(git config user.email)
+pr commit: pr list --search "$1 base:main" --state all
 pv: pr view
 pw: pr view --web
 readygo: '!gh pr checks --watch --fail-fast && gh pr ready'
