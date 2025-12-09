@@ -114,6 +114,8 @@ fi
 bindkey '^b' backward-char
 bindkey '^f' forward-char
 bindkey '^k' kill-line
+bindkey '^q' push-line
+bindkey '^u' backward-kill-line
 bindkey -a K run-help
 
 # export MANPATH="/usr/local/man:$MANPATH"
