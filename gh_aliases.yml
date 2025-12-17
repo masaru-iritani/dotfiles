@@ -1,6 +1,8 @@
 ae: '!gh alias list > ~/dotfiles/gh_aliases.yml'
 ai: '!gh alias import --clobber ~/dotfiles/gh_aliases.yml'
+approve: pr review --approve
 co: pr checkout
+draft: pr create --draft --fill
 homework: issue list --assignee @me
 inbox: issue list --mention @me
 iv: issue view
