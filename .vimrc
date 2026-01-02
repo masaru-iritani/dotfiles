@@ -209,10 +209,13 @@ if exists('*SkkGetModeStr')
   set statusline+=%{SkkGetModeStr()}\ 
 endif
 set tabstop=4
-if has('win32')
-  set termencoding=CP932
-else
-  set termencoding=UTF-8
+" Note: Neovim doesn't have termencoding option.
+if exists('+termencoding')
+  if has('win32')
+    set termencoding=CP932
+  else
+    set termencoding=UTF-8
+  endif
 endif
 if exists('+setguicolors')
   set termguicolors
