@@ -3,3 +3,6 @@
 -- Add any additional keymaps here
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Command mode" })
 vim.keymap.set({ "n" }, "<CR>", ":w<CR>", { desc = "Save file" })
+vim.keymap.set({ "n" }, "<C-p>", function()
+  Snacks.picker.smart()
+end, { desc = "Open files" })
