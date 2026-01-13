@@ -13,3 +13,4 @@ pr commit: pr list --search "$1 base:main" --state all
 pv: pr view
 pw: pr view --web
 readygo: '!gh pr checks --watch --fail-fast && gh pr ready'
+review: pr list --search user-review-requested:@me
