@@ -7,7 +7,12 @@
 [core]
         excludesfile = ~/.gitignore
         fsmonitor = true
+        pager = delta
         untrackedCache = true
+
+[delta]
+        hyperlinks = true
+        line-numbers = true
 
 [diff]
         algorithm = histogram
