@@ -5,7 +5,28 @@ a() {
     alias | grep "$*"
 }
 
-# Checks if a command in the first argument exists or not.
+# Attach to a devcontainer in the current directory.
+devcontainer_attach() {
+  devcontainer_exec zsh -il
+}
+
+# Execute a command on a devcontainer in the current directory.
+devcontainer_exec() {
+  INFO=$(devcontainer up --workspace-folder "$PWD" | jq -s '.[-1]')
+  CONTAINER_ID=$(printf '%s\n' "$INFO" | jq -r '.containerId')
+  REMOTE_USER=$(printf '%s\n' "$INFO" | jq -r '.remoteUser')
+  WORKSPACE_DIR=$(printf '%s\n' "$INFO" | jq -r '.remoteWorkspaceFolder')
+  docker exec \
+    --detach-keys="ctrl-@" \
+    --interactive \
+    --tty \
+    --user "$REMOTE_USER" \
+    --workdir "$WORKSPACE_DIR" \
+    "$CONTAINER_ID" \
+    $*
+}
+
+# Check if a command in the first argument exists or not.
 exists() {
     which $1 2> /dev/null > /dev/null
 }
