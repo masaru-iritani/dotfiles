@@ -68,6 +68,7 @@ fi
 
 ZSH_TMUX_AUTOCONNECT=true
 ZSH_TMUX_AUTOQUIT=false
+ZSH_TMUX_UNICODE=true
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
