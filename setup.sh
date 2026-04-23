@@ -23,18 +23,18 @@ files=(
   .zshrc
 )
 for f in ${files[@]}; do
-  ln --force --symbolic $SCRIPT_DIR/$f ~
+  ln -fs $SCRIPT_DIR/$f ~
 done
 
 # Make symbolic links under ~/.config
-mkdir --parents ~/.config
+mkdir -p ~/.config
 files=(
   fish
   nvim
   starship.toml
 )
 for f in ${files[@]}; do
-  ln --force --symbolic $SCRIPT_DIR/.config/$f ~/.config
+  ln -fs $SCRIPT_DIR/.config/$f ~/.config
 done
 
 git config --global include.path "$SCRIPT_DIR/.gitconfig"
