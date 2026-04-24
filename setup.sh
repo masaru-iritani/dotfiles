@@ -19,6 +19,7 @@ files=(
   .tmux.conf
   .vim
   .vimrc
+  .wezterm.lua
   .zprofile
   .zshrc
 )
