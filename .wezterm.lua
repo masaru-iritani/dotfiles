@@ -10,5 +10,5 @@ config.font = wezterm.font_with_fallback({
 	"UDEV Gothic 35NF",
 	"Symbols Nerd Font Mono",
 })
-
+config.notification_handling = "AlwaysShow"
 return config
