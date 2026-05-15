@@ -7,7 +7,7 @@ a() {
 
 # Attach to a devcontainer in the current directory.
 devcontainer_attach() {
-  devcontainer_exec zsh -il
+  devcontainer_exec zsh -ilc tds
 }
 
 # Execute a command on a devcontainer in the current directory.
