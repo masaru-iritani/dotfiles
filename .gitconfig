@@ -7,7 +7,7 @@
 [core]
         excludesfile = ~/.gitignore
         fsmonitor = true
-        pager = diffnav
+        pager = delta
         untrackedCache = true
 
 [delta]
@@ -33,6 +33,9 @@
 
 [merge]
         conflictstyle = zdiff3 
+
+[pager]
+        diff = diffnav
 
 [pull]
         rebase = true
