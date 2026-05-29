@@ -7,7 +7,7 @@
 [core]
         excludesfile = ~/.gitignore
         fsmonitor = true
-        pager = delta
+        pager = diffnav
         untrackedCache = true
 
 [delta]
