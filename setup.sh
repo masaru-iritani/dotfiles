@@ -38,4 +38,5 @@ for f in ${files[@]}; do
   ln -fs $SCRIPT_DIR/.config/$f ~/.config
 done
 
+gh alias import $SCRIPT_DIR/gh_aliases.yml --clobber
 git config --global include.path "$SCRIPT_DIR/.gitconfig"

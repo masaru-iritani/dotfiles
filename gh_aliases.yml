@@ -2,15 +2,16 @@ ae: '!gh alias list > ~/dotfiles/gh_aliases.yml'
 ai: '!gh alias import --clobber ~/dotfiles/gh_aliases.yml'
 approve: pr review --approve
 co: pr checkout
+diff: '!GH_PAGER=diffnav gh pr diff $1'
 draft: pr create --draft --fill
 homework: issue list --assignee @me
 inbox: issue list --mention @me
 iv: issue view
 iw: issue view --web
-mp: pr list --search 'assignee:@me OR author:@me'
 pc: pr commit
-pm: pr merge --author-email $(git config user.email)
+pm: pr mine
 pr commit: pr list --search "$1 base:main" --state all
+pr mine: pr list --search 'involves:@me'
 pv: pr view
 pw: pr view --web
 readygo: '!gh pr checks --watch --fail-fast && gh pr ready'
