@@ -31,6 +31,7 @@ done
 mkdir -p ~/.config
 files=(
   fish
+  herdr
   nvim
   starship.toml
 )
