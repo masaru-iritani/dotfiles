@@ -182,10 +182,10 @@ if exists fdfind; then
 fi
 alias gbDi='git branch --color --verbose | fzf --ansi | cut -c3- | cut -d" " -f1 | xargs git branch -D'
 alias gbdi='git branch --color --verbose | fzf --ansi | cut -c3- | cut -d" " -f1 | xargs git branch -d'
-alias gcfui='git commit --fixup $(git log --oneline origin/main..HEAD --reverse | fzf | awk '\''{print $1}'\'') && git rebase --autosquash --autostash $(git merge-base origin/main HEAD)'
 alias gci='git branch --color --verbose | fzf --ansi | cut -c3- | cut -d" " -f1 | xargs git checkout'
 alias gdom='git diff --merge-base origin/main'
 alias gfu='git commit --fixup'
+alias ghfi='git log --oneline origin/main..HEAD --reverse | fzf | awk '\''{print $1}'\'' | xargs git history fixup'
 alias ghg='git --no-pager log -n 1 --format=%H%n --grep'
 alias glom='git log origin/main..HEAD'
 alias gnom='git log --name-only origin/main..HEAD'
