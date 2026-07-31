@@ -127,6 +127,9 @@ if exists go; then
   path add "$(go env GOPATH)/bin"
 fi
 
+# Add devcontainer paths
+path add ~/.devcontainers/bin
+
 if exists vim; then
   export EDITOR=vim
 else
