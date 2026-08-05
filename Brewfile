@@ -1,3 +1,4 @@
+brew "diffnav"
 brew "fzf"
 brew "gh"
 brew "git-delta"
