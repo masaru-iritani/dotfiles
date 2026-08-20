@@ -1,6 +1,8 @@
+brew "bat"
 brew "diffnav"
 brew "fzf"
 brew "gh"
+brew "git"
 brew "git-delta"
 brew "graphviz"
 brew "herdr"
