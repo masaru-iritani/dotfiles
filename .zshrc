@@ -84,6 +84,7 @@ plugins=(
   golang
   magic-enter
   ngrok
+  nvm
   rbenv
   starship
   tmux
