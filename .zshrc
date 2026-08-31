@@ -75,6 +75,7 @@ ZSH_TMUX_UNICODE=true
 plugins=(
   aliases
   asdf
+  brew
   direnv
   docker
   fzf

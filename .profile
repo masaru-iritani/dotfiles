@@ -230,17 +230,7 @@ fi
 # EXPORT ALIASES
 export ALIASES="$(alias)"
 
-# LOAD HOMEBREW ENV VARIABLES
-if [ -f "/opt/homebrew/bin/brew" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
 # LOAD HOST SPECIFIC PROFILE
 if [ -f "~/.profile.$(hostname)" ]; then
   . ~/.profile.$(hostname)
-fi
-
-# LOAD ASDF
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
-  . "$HOME/.asdf/asdf.sh"
 fi
