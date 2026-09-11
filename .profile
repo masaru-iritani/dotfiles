@@ -33,8 +33,10 @@ exists() {
 
 # Create a feature branch from the latest origin/main.
 gcoomb() {
-  git fetch
-  git checkout --no-track origin/main -b masaru-iritani/$1
+  git fetch --all --prune
+  # Run gbgD (delete all gone branches).
+  LANG=C git branch --no-color -vv | grep ": gone\]" | cut -c 3- | awk '{print $1}' | xargs git branch -D
+  git checkout --no-track origin/main -b $1
 }
 
 path() {
